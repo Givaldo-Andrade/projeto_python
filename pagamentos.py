@@ -94,7 +94,7 @@ Item Deletado com Sucesso.
 ''')
                 
             except:
-                print("ID Inválido.")
+                print("\nID Inválido.")
             
         
         else:
@@ -122,7 +122,7 @@ Cadastrar Pagamentos
             try:
                 valor = float(input("Informe o valor: R$"))
             except:
-                input('''<ERROR> Informe apenas números no valor.
+                input('''<ERROR> Informe apenas números no valor :(.
 Pressione ENTER para voltar.''')
                 break
                 
