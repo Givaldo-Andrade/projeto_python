@@ -4,7 +4,6 @@ import pagamentos
 import contas
 
 def menu_geral():
-    pagamentos.Pagamentos()
     os.system('cls')
     print(f'''
 --------------------------------------------         
@@ -25,7 +24,7 @@ def menu_geral():
 
 if __name__ == '__main__':
     fornecedor = fornecedores.Fornecedores()
-    #contas
+    conta = contas.Contas()
     pagamento = pagamentos.Pagamentos()
     
     while True:
@@ -40,12 +39,10 @@ if __name__ == '__main__':
                 fornecedor.remover()
             
             elif menu_opcao == 3:
-                #script cadastrar contas
-                pass
+                conta.insert()
             
             elif menu_opcao == 4:
-                # script contas remover
-                pass
+                conta.remover()
                 
             elif menu_opcao == 5:
                 pagamento.insert()
@@ -57,8 +54,7 @@ if __name__ == '__main__':
                 fornecedor.imprimir()
                 
             elif menu_opcao == 8:
-                # script imprimir contas
-                pass
+                conta.imprimir()
                 
             elif menu_opcao == 9:
                 pagamento.imprimir()    
