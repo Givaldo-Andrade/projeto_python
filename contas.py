@@ -28,7 +28,7 @@ class Contas(object):
 |  PROGRAMA DE CADASTRO DE CONTAS A PAGAR  |
 --------------------------------------------
 
-OPÇÂO - 9
+OPÇÂO - 8
 Ver Transações de Conta
 --------------------------------------------''')
         if len(self.list_contas) == 0:
@@ -59,7 +59,7 @@ Status: {conta.status}
 |  PROGRAMA DE CADASTRO DE CONTAS A PAGAR  |
 --------------------------------------------
 
-OPÇÂO - 6
+OPÇÂO - 4
 Remover Contas
 --------------------------------------------
 ''')
@@ -97,7 +97,7 @@ Item Deletado com Sucesso.
 ''')
                 
             except:
-                print("ID Inválido.")
+                print("\nID Inválido.")
             
         
         else:
@@ -113,29 +113,34 @@ Item Deletado com Sucesso.
 |  PROGRAMA DE CADASTRO DE CONTAS A PAGAR  |
 --------------------------------------------
 
-OPÇÂO - 5
+OPÇÂO - 3
 Cadastrar Contas
 --------------------------------------------''')
             n = len(self.list_contas)
             id = n + 1    
             descricao = input("\nInforme a descricao: ")
             fornecedor = input("Informe o nome do fornecedor: ")
-            d, m, y = [int(i) for i in input("Informe a data de vencimento (DD/MM/AAAA): ").split('/')]
-            vencimento = date(y, m, d)
-            tempo = date.today()
+            try:
+                d, m, y = [int(i) for i in input("Informe a data de vencimento (DD/MM/AAAA): ").split('/')]
+                vencimento = date(y, m, d)
+                tempo = date.today()
         
-            if tempo > vencimento:
-                status = 'Atrasado'
-                
-            else:
-                status = 'Pendente'
-                
-            vencimento = vencimento.strftime("%d/%m/%y")
+                if tempo > vencimento:
+                    status = 'Atrasado'
+                    
+                else:
+                    status = 'Pendente'
+                    
+                vencimento = vencimento.strftime("%d/%m/%y")
+            except:
+                input('''<ERROR> Informe a data no formato correto :(.
+Pressione ENTER para voltar.''')
+                break
             
             try:
                 valor = float(input("Informe o valor: R$"))
             except:
-                input('''<ERROR> Informe apenas números no valor.
+                input('''<ERROR> Informe apenas números no valor :(. 
 Pressione ENTER para voltar.''')
                 break
                 
