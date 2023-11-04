@@ -22,6 +22,16 @@ class Fornecedores:
         return self.list_fornecedor
     
     def remover(self):
+        os.system('cls')
+        print('''
+--------------------------------------------         
+|  PROGRAMA DE CADASTRO DE CONTAS A PAGAR  |
+--------------------------------------------
+
+OPÇÂO - 2
+Remover Fornecedor
+--------------------------------------------
+''')
         if len(self.list_fornecedor) > 0:
             idItem = int(input('''Informe o ID do FORNECEDOR que deseja deletar:
 ID: '''))
@@ -56,7 +66,7 @@ Item Deletado com Sucesso.
 ''')
                                
             except:
-                print("ID Inválido.")
+                print("\nID Inválido.")
             
         else:
             print("Nenhum Registro para Deletar.\n")    
