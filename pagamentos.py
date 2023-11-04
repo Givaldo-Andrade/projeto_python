@@ -62,7 +62,7 @@ Remover Pagamentos
 --------------------------------------------
 ''')
         if len(self.list_pagamentos) > 0:
-            idItem = int(input('''Informe o ID do pagamento que deseja deletar:
+            idItem = int(input('''Informe o ID do PAGAMENTO que deseja deletar:
 ID: '''))
             try:
                 i = idItem - 1
@@ -112,8 +112,7 @@ Item Deletado com Sucesso.
 
 OPÇÂO - 5
 Cadastrar Pagamentos
---------------------------------------------
-''')
+--------------------------------------------''')
             n = len(self.list_pagamentos)
             id = n + 1    
             descricao = input("\nInforme a descricao: ")
@@ -139,4 +138,3 @@ Pressione ENTER para voltar.''')
             
             else:
                 break
-    
