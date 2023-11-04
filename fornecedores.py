@@ -23,7 +23,7 @@ class Fornecedores:
     
     def remover(self):
         if len(self.list_fornecedor) > 0:
-            idItem = int(input('''Informe o ID do fornecedor que deseja deletar:
+            idItem = int(input('''Informe o ID do FORNECEDOR que deseja deletar:
 ID: '''))
             try:
                 i = idItem - 1
