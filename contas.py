@@ -133,7 +133,7 @@ Cadastrar Contas
                     
                 vencimento = vencimento.strftime("%d/%m/%y")
             except:
-                input('''<ERROR> Informe a data no formato correto :(.
+                input('''\n<ERROR> Informe a data no formato correto :(.
 Pressione ENTER para voltar.''')
                 break
             
