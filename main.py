@@ -2,12 +2,18 @@ import os
 import fornecedores
 import pagamentos
 import contas
+from datetime import datetime
+
+# Equipe
 
 def menu_geral():
     os.system('cls')
+    data_hoje = datetime.now().strftime('%d/%m/%Y - %H:%M:%S')
     print(f'''
 --------------------------------------------         
 |  PROGRAMA DE CADASTRO DE CONTAS A PAGAR  |
+--------------------------------------------
+Data/Hora: {data_hoje}
 --------------------------------------------
 
 <1> Para Cadastrar Fornecedor
