@@ -1,5 +1,7 @@
 import os
 from datetime import datetime
+
+# Givaldo e Denis
     
 class Pagamento(object):
     def __init__(self, id: int, descricao: str, fornecedor: str, metodo: str, valor: float, valorTotal: float, data: str):
@@ -8,7 +10,7 @@ class Pagamento(object):
         self.fornecedor = fornecedor
         self.metodo = metodo
         self.valor = valor
-        self.valorTotal = valorTotal
+        self.valorTotal_Pag = valorTotal
         self.data = data
     
 class Pagamentos(object):
@@ -22,42 +24,43 @@ class Pagamentos(object):
     
     def imprimir(self):
         os.system('cls')
-        print('''
+        data_hoje = datetime.now().strftime('%d/%m/%Y - %H:%M:%S')
+        print(f'''
 --------------------------------------------         
 |  PROGRAMA DE CADASTRO DE CONTAS A PAGAR  |
 --------------------------------------------
+Data/Hora: {data_hoje}
+--------------------------------------------
 
-OPÇÂO - 9
+OPÇÃO - 9
 Ver Transações de Pagamento
 --------------------------------------------''')
         if len(self.list_pagamentos) == 0:
             print("\nNenhum pagamento cadastrado.\n")
         
-        else:  
+        else:
+            print('''
+-----------------------------------
+|      REGISTRO - PAGAMENTOS      |
+-------------------------------------------------------------------------------------------------------------------------------------------''') 
             for pagamento in self.list_pagamentos:
-                print(f'''
-----------------------------------
-|      REGISTRO - PAGAMENTO      |
-----------------------------------
-ID: {pagamento.id}
-Fornecedor: {pagamento.fornecedor}
-Descrição: {pagamento.descricao}
-Método de Pagamento: {pagamento.metodo}
-Valor: R${pagamento.valor:.2f}
-Data: {pagamento.data}
-----------------------------------''')
+                print(f'''ID: {pagamento.id} | Fornecedor: {pagamento.fornecedor} | Descrição: {pagamento.descricao} | Método de Pagamento: {pagamento.metodo} | Valor: R${pagamento.valor:.2f} | Data: {pagamento.data}
+--------------------------------------------------------------------------------------------------------------------------------------------''')
             print(f"Valor Total: R${self.Total:.2f}\n")
             
         input("Pressione ENTER para voltar.")
     
     def remover(self):
         os.system('cls')
-        print('''
+        data_hoje = datetime.now().strftime('%d/%m/%Y - %H:%M:%S')
+        print(f'''
 --------------------------------------------         
 |  PROGRAMA DE CADASTRO DE CONTAS A PAGAR  |
 --------------------------------------------
+Data/Hora: {data_hoje}
+--------------------------------------------
 
-OPÇÂO - 6
+OPÇÃO - 6
 Remover Pagamentos
 --------------------------------------------
 ''')
@@ -90,7 +93,7 @@ Data: {pagamento.data}
                     pagamento.id = d + 1
                     
                 print(f'''{item_del}
-Item Deletado com Sucesso.
+Pagamento Deletado com Sucesso.
 ''')
                 
             except:
@@ -105,18 +108,21 @@ Item Deletado com Sucesso.
     def insert(self):            
         while True:
             os.system('cls')
-            print('''
+            data_hoje = datetime.now().strftime('%d/%m/%Y - %H:%M:%S')
+            print(f'''
 --------------------------------------------         
 |  PROGRAMA DE CADASTRO DE CONTAS A PAGAR  |
 --------------------------------------------
+Data/Hora: {data_hoje}
+--------------------------------------------
 
-OPÇÂO - 5
+OPÇÃO - 5
 Cadastrar Pagamentos
 --------------------------------------------''')
             n = len(self.list_pagamentos)
             id = n + 1    
             descricao = input("\nInforme a descricao: ")
-            fornecedor = input("Informe o nome do fornecedor: ")
+            fornecedor = input("Informe o fornecedor: ")
             metodo = input("Informe o metodo de pagemento [PIX, Boleto, Cartão, Dinheiro]: ")
             
             try:
@@ -127,7 +133,7 @@ Pressione ENTER para voltar.''')
                 break
                 
             self.Total += valor
-            data = datetime.now().strftime('%d/%m/%y - %H:%M:%S')
+            data = datetime.now().strftime('%d/%m/%Y - %H:%M:%S')
             pag = Pagamento(id=id, descricao=descricao, fornecedor=fornecedor, metodo=metodo, valor=valor, valorTotal=self.Total, data=data) 
             self.add(pag)
             
