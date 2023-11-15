@@ -14,7 +14,6 @@ class Fornecedor:
 class Fornecedores:
     def __init__(self):
         self.list_fornecedor = list()
-        self.Total = 0
 
     def add(self, fornecedor: Fornecedor):
         self.list_fornecedor.append(fornecedor)
